@@ -47,7 +47,7 @@ from qdrant_client.models import VectorParams, Distance
 #############################################
 FROM_GIT = False
 GIT_URL = ""
-repo_path = "Server178"
+repo_path = "source"
 
 USE_OPENAI = False  # False => HuggingFaceEmbeddings
 os.environ["OPENAI_API_KEY"] = "sk-xxx-YourKeyHere"
@@ -62,7 +62,7 @@ PARSER_THRESHOLD = 1000
 VECTOR_CHROMA = False
 VECTOR_QDRANT = True
 
-collection_name = "server178"
+collection_name = "source"
 qdrant_url = "http://127.0.0.1:6333"
 
 BATCH_SIZE = 250
@@ -169,7 +169,7 @@ class MultiEncodingLanguageParser(LanguageParser):
         data = blob.as_bytes()
         code_str = try_decode(data)
         if code_str is None:
-            print(f"Skipping {blob.source} – unable to decode.")
+            print(f"Skipping {blob.source}  1�7 unable to decode.")
             return
         language = self.language or self._guess_language(blob)
         yield from self._parse_text(code_str, blob, language)
